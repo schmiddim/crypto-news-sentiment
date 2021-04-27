@@ -4,9 +4,9 @@ Inspired by https://github.com/CyberPunkMetalHead/Binance-News-Sentiment-Bot
 
 
 Work in progress 
-- Fix todos
-- Caching
-- Use TT RSS
-- More sources
-- Better Analyzers
-- Benchmarking
+1. Fix todos
+2. Caching
+3. Better Analyzers
+4. Benchmarking (log results with rates to Google Sheets)
+5. More sources
+6. Use TT RSS

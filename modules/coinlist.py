@@ -4,7 +4,7 @@ from binance.client import Client
 def get_binance_coins_with_keywords(client: Client):
     info = client.get_all_coins_info()
 
-    coin_keywords = []
+    coin_keywords = {}
     for item in info:
         name = str(item.get('name'))
 
@@ -16,11 +16,7 @@ def get_binance_coins_with_keywords(client: Client):
             name[0].upper() + name[1:].lower()
 
         ]
-        enriched = {
-            'coin': item.get('coin'),
-            'variations': set(variations)
-        }
 
-        coin_keywords.append(enriched)
+        coin_keywords[item.get('coin')]= set(variations)
 
     return coin_keywords

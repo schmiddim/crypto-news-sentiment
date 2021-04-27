@@ -1,4 +1,4 @@
-#Sentiment Analyzer for Crypto news
+# Sentiment Analyzer for Crypto news
 
 Inspired by https://github.com/CyberPunkMetalHead/Binance-News-Sentiment-Bot
 

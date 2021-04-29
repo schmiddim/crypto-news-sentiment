@@ -1,0 +1,24 @@
+version: "3"
+services:
+  db:
+      image: mariadb
+      container_name: "${DB_SERVICE_NAME:-mariadb-4chan-aggregator}"
+      environment:
+          - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD:-test}
+          - MYSQL_DATABASE=${MYSQL_DATABASE:-biz}
+      volumes:
+          - ./database:/var/lib/mysql
+      ports:
+          - "${DB_PORT:-3316}:3306"
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: "${PMA_SERVICE_NAME:-phpmyadmin-4chan-aggregator}"
+      environment:
+          - PMA_HOST=db
+          - PMA_PORT=3306
+      ports:
+          - "${PMA_PORT:-8080}:80"
+      volumes:
+          - /sessions
+      links:
+          - db

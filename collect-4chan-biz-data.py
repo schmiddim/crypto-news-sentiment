@@ -25,8 +25,12 @@ for thread_id in b.get_all_thread_ids():
                     (date_modified, date_created_4chan,date_last_modified_4chan, thread_id, topic, replies) 
                     VALUES (current_timestamp(), %s, %s,%s,%s, %s);
             """
+
+        op_comment = None
+        if thread.topic is not None:
+            op_comment = thread.topic.text_comment
         cur = conn.cursor()
-        cur.execute(sql, [thread.topic.datetime, replies[-1].get("date"), thread_id, thread.topic.text_comment, json_data])
+        cur.execute(sql, [thread.topic.datetime, replies[-1].get("date"), thread_id, op_comment, json_data])
         conn.commit()
     except Exception as e:
         print("thread id  {}".format(thread_id))

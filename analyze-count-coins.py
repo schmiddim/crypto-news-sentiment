@@ -14,6 +14,4 @@ threads = get_all_threads(conn)
 for r in threads:
     r['replies'] = json.loads(r.get('replies'))
     result = analyze_thread(r, binance_coins)
-    print(r.get('thread_id'), result)
     store_rating(conn, result, len(r['replies']), r.get('thread_id'))
-    print(json.dumps(result))

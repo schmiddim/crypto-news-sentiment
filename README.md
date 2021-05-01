@@ -4,11 +4,12 @@ Tested with python 3.8, 3.9 doesn't work because BASC-py4chan is broken atm with
 
 ## Collect Data from 4chan
 **No ORM provided**
-###Setup
+
+### Setup
 - provide mariadb || use docker-compose
 - setup db + connection
 - import seed.sql to mysql
-###Usage
+### Usage
 Run
 ```
 python3 collect-4chan-biz-data.py

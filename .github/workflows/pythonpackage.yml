@@ -39,15 +39,15 @@ jobs:
           pip install pytest
           pytest tests/*
 
-#      - name: Deploy Application
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USERNAME }}
-#          key: ${{ secrets.KEY }}
-#          script: |
-#            cd /opt/dirty/crypto-news-sentiment
-#            git pull
+      - name: Deploy Application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd /opt/dirty/crypto-news-sentiment
+            git pull
 #            python3.9 -m venv venv
 #            source venv/bin/activate
 #            env/bin/pip install -e .
